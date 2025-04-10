@@ -1,0 +1,162 @@
+/* --- Variables de Color (Paleta Oscura Minimalista) --- */
+:root {
+    --bg-color: #1a1a1a; /* Fondo muy oscuro, casi negro */
+    --surface-color: #2a2a2a; /* Un gris oscuro para elementos como el nav */
+    --text-color: #f0f0f0; /* Texto principal (blanco roto) */
+    --text-secondary-color: #aaaaaa; /* Texto secundario (gris claro) */
+    --accent-color: #e0e0e0; /* Color de acento sutil (blanco más brillante o un color) */
+    --border-color: #444444; /* Color para bordes/separadores */
+}
+
+/* --- Reset Básico y Estilos Globales --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 0 20px; /* Espaciado lateral */
+}
+
+/* --- Navbar --- */
+.navbar {
+    background-color: var(--surface-color);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-center {
+    text-align: center; /* Centra el contenido del div */
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--accent-color);
+    text-decoration: none;
+    /* Si usas imagen: */
+    /* display: inline-block; vertical-align: middle; */
+}
+
+.logo-img {
+    /* Ajusta el tamaño de tu logo si usas una imagen */
+    height: 40px;
+    width: auto;
+}
+
+
+/* --- Header Descripción --- */
+.header-description {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.header-description h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+.header-description p {
+    font-size: 1.1em;
+    color: var(--text-secondary-color);
+    max-width: 600px; /* Limita el ancho del párrafo */
+    margin: 0 auto; /* Centra el párrafo */
+}
+
+/* --- Sección de Torneos --- */
+.tournaments-section {
+    padding: 40px 0; /* Añade un poco de espacio vertical */
+}
+
+.tournaments-section h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: var(--accent-color);
+}
+
+.tournament-list {
+    list-style: none; /* Quita los puntos de la lista */
+}
+
+.tournament-item {
+    display: flex; /* Usa Flexbox para alinear elementos */
+    justify-content: space-between; /* Espacio entre info y puesto */
+    align-items: center; /* Alinea verticalmente al centro */
+    padding: 15px 10px; /* Espaciado interno */
+    border-bottom: 1px solid var(--border-color); /* Línea separadora */
+    transition: background-color 0.2s ease-in-out; /* Efecto hover suave */
+}
+
+.tournament-item:last-child {
+    border-bottom: none; /* Quita la línea del último elemento */
+}
+
+.tournament-item:hover {
+    background-color: var(--surface-color); /* Sutil cambio de fondo al pasar el ratón */
+}
+
+.tournament-info .name {
+    font-weight: bold;
+    display: block; /* Hace que el nombre ocupe su línea */
+}
+
+.tournament-info .date {
+    font-size: 0.9em;
+    color: var(--text-secondary-color);
+    display: block; /* Hace que la fecha ocupe su línea */
+    margin-top: 3px;
+}
+
+.tournament-placement {
+    font-weight: bold;
+    text-align: right; /* Asegura alineación derecha */
+    color: var(--accent-color);
+    min-width: 80px; /* Evita que el texto se comprima mucho */
+}
+
+/* --- Opcional: Footer --- */
+/*
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
+    color: var(--text-secondary-color);
+}
+*/
+
+/* --- Media Queries para Responsividad (Opcional Básico) --- */
+@media (max-width: 600px) {
+    .header-description h1 {
+        font-size: 2em;
+    }
+    .header-description p {
+        font-size: 1em;
+    }
+    .tournaments-section h2 {
+        font-size: 1.8em;
+    }
+    .tournament-item {
+        padding: 12px 5px;
+    }
+    .tournament-info .name {
+        font-size: 0.95em;
+    }
+    .tournament-placement {
+        font-size: 0.95em;
+        min-width: 70px;
+    }
+}
