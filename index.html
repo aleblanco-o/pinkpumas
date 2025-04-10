@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pink Pumas</title> <link rel="stylesheet" href="style.css">
+    <title>Pink Pumas</title> 
+    <link rel="stylesheet" href="style.css">
     </head>
 <body>
 
     <nav class="navbar">
-        <div class="nav-center">
-            <img src="assets/logo.png" alt="Logo del Equipo Vóley" class="logo-img"> 
-        </div>
+        <div class="container nav-content">
+            <a href="#" class="logo-link"> 
+                <img src="assets\logo.png" alt="Logo del Equipo" class="logo-img" style="display: inline-block;">
+            </a>
+            <span class="nav-left">Pink Pumas</span>
+
+            <a href="https://www.instagram.com/pinkpumas_/" target="_blank" rel="noopener noreferrer" class="nav-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+                </svg>
+            </a>
+            </div>
     </nav>
 
     <header class="header-description">
-        <div class="container">
-             <h1>Nombre del Equipo</h1>
+        <div class="container" style="text-align: center;">
             <p>
-                Somos un equipo apasionado por el vóley, compitiendo y creciendo juntos en cada partido. ¡Bienvenidos a nuestra página!
+                Hobby-Volleyballmannschaft aus Braunschweig
             </p>
         </div>
     </header>
@@ -25,36 +36,18 @@
     <main class="main-content">
         <section class="tournaments-section container">
             <h2>Turniere</h2>
-            <ul class="tournament-list">
-                <li class="tournament-item">
-                    <div class="tournament-info">
-                        <span class="name">Nombre Torneo 1</span>
-                        <span class="date">DD/MM/AAAA</span>
-                    </div>
-                    <div class="tournament-placement">
-                        <span>1er Lugar</span> </div>
-                </li>
-                <li class="tournament-item">
-                    <div class="tournament-info">
-                        <span class="name">Campeonato Regional XYZ</span>
-                        <span class="date">DD/MM/AAAA</span>
-                    </div>
-                    <div class="tournament-placement">
-                        <span>3er Lugar</span>
-                    </div>
-                </li>
-                <li class="tournament-item">
-                    <div class="tournament-info">
-                        <span class="name">Copa de Verano</span>
-                        <span class="date">DD/MM/AAAA</span>
-                    </div>
-                    <div class="tournament-placement">
-                        <span>Participación</span>
-                    </div>
-                </li>
-                 </ul>
+            <ul class="list-items" id="tournaments-list">
+                <!-- Los torneos se generarán aquí dinámicamente -->
+            </ul>
         </section>
     </main>
 
-    </body>
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 Pink Pumas - Braunschweig</p> 
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
 </html>

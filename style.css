@@ -1,11 +1,12 @@
-/* --- Variables de Color (Paleta Oscura Minimalista) --- */
+/* --- Variables de Color (Basadas en PDF y preferencias) --- */
 :root {
-    --bg-color: #1a1a1a; /* Fondo muy oscuro, casi negro */
-    --surface-color: #2a2a2a; /* Un gris oscuro para elementos como el nav */
-    --text-color: #f0f0f0; /* Texto principal (blanco roto) */
-    --text-secondary-color: #aaaaaa; /* Texto secundario (gris claro) */
-    --accent-color: #e0e0e0; /* Color de acento sutil (blanco más brillante o un color) */
-    --border-color: #444444; /* Color para bordes/separadores */
+    --bg-color: #000F08; /* Color principal del PDF */
+    --text-color: #f0f0f0; /* Blanco roto para buena legibilidad */
+    --text-secondary-color: #aaaaaa; /* Gris claro para fechas, roles, etc. */
+    --accent-color-primary: #D72483; /* Rosa del PDF (opcional, para H1?) */
+    --accent-color-secondary: #90FCF9; /* Cyan del PDF (para hover) */
+    --border-color: #333; /* Borde un poco más visible sobre #000F08 */
+    /* --surface-color ahora es igual a --bg-color */
 }
 
 /* --- Reset Básico y Estilos Globales --- */
@@ -16,147 +17,219 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* Fuente nativa del sistema */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
 }
 
 .container {
-    max-width: 900px; /* Ancho máximo del contenido */
-    margin: 0 auto; /* Centrar el contenedor */
-    padding: 0 20px; /* Espaciado lateral */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* --- Navbar --- */
 .navbar {
-    background-color: var(--surface-color);
+    /* Mismo color que el fondo, sin color propio */
+    background-color: var(--bg-color); 
     padding: 15px 0;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color); /* Mantenemos un separador sutil */
 }
 
-.nav-center {
-    text-align: center; /* Centra el contenido del div */
+.nav-content {
+    display: flex; /* Habilita Flexbox */
+    justify-content: space-between; /* Logo a la izquierda, link a la derecha */
+    align-items: center; /* Alinea verticalmente al centro */
+}
+
+.logo-link {
+    text-decoration: none; /* Quita subrayado si el logo es un enlace */
 }
 
 .logo {
     font-size: 1.8em;
     font-weight: bold;
-    color: var(--accent-color);
-    text-decoration: none;
-    /* Si usas imagen: */
-    /* display: inline-block; vertical-align: middle; */
+    color: var(--text-color); /* Color base para el logo */
+    /* Podrías usar var(--accent-color-primary) si quieres el rosa */
 }
 
 .logo-img {
-    /* Ajusta el tamaño de tu logo si usas una imagen */
-    height: 40px;
-    width: auto;
+    height: 4vw; /* Ajusta el tamaño del logo según el ancho de la ventana */
+    max-height: 80px; /* Tamaño máximo para pantallas grandes */
+    width: auto; /* Mantiene las proporciones */
+    display: block; /* Asegura que la imagen se comporte como bloque */
 }
 
+.nav-link {
+    color: var(--text-secondary-color); /* Color base del enlace */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px; /* Bordes redondeados suaves */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+    display: flex; /* Asegura que el ícono se alinee correctamente */
+    align-items: center; /* Centra verticalmente el ícono */
+}
+
+.nav-link:hover {
+    color: var(--bg-color); /* Texto oscuro sobre fondo cyan */
+    background-color: var(--accent-color-secondary); /* Color #90FCF9 del PDF */
+}
+
+.nav-link svg {
+    height: 20px; /* Ajusta el tamaño del ícono */
+    width: 20px;
+}
+
+.nav-left {
+    font-weight: bold; /* Aplica negrita al texto */
+    font-size: 1.2em; /* Opcional: Ajusta el tamaño del texto */
+    color: var(--text-color); /* Asegura que el color sea consistente */
+}
 
 /* --- Header Descripción --- */
 .header-description {
     text-align: center;
-    padding: 50px 20px;
+    padding: 50px 20px 40px 20px; /* Ajuste ligero de padding */
 }
 
 .header-description h1 {
     font-size: 2.5em;
     margin-bottom: 15px;
-    color: var(--accent-color);
+    /* Puedes usar el rosa aquí si quieres: color: var(--accent-color-primary); */
+    color: var(--text-color); 
 }
 
 .header-description p {
     font-size: 1.1em;
     color: var(--text-secondary-color);
-    max-width: 600px; /* Limita el ancho del párrafo */
-    margin: 0 auto; /* Centra el párrafo */
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* --- Sección de Torneos --- */
-.tournaments-section {
-    padding: 40px 0; /* Añade un poco de espacio vertical */
+/* --- Secciones Principales (Turniere, Kader) --- */
+.main-content {
+    padding-bottom: 30px; /* Espacio antes del footer */
 }
 
-.tournaments-section h2 {
+.tournaments-section,
+.kader-section {
+    padding: 30px 0; /* Espaciado vertical entre secciones */
+}
+
+.tournaments-section h2,
+.kader-section h2 {
     text-align: center;
     font-size: 2em;
     margin-bottom: 30px;
-    color: var(--accent-color);
+    color: var(--text-color); /* Títulos en color principal */
+     /* Puedes usar el rosa aquí si quieres: color: var(--accent-color-primary); */
 }
 
-.tournament-list {
-    list-style: none; /* Quita los puntos de la lista */
+/* --- Estilos de Lista Genéricos (para Turniere y Kader) --- */
+.list-items {
+    list-style: none;
 }
 
-.tournament-item {
-    display: flex; /* Usa Flexbox para alinear elementos */
-    justify-content: space-between; /* Espacio entre info y puesto */
-    align-items: center; /* Alinea verticalmente al centro */
-    padding: 15px 10px; /* Espaciado interno */
-    border-bottom: 1px solid var(--border-color); /* Línea separadora */
-    transition: background-color 0.2s ease-in-out; /* Efecto hover suave */
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px; /* Mantén el espacio interno */
+    border: none; /* Elimina el borde entre los elementos */
+    border-radius: 5px; /* Mantén los bordes redondeados si es necesario */
+    background-color: var(--bg-color); /* Fondo opcional */
+    margin-bottom: 0; /* Elimina el margen entre los elementos */
+    transition: background-color 0.2s ease-in-out;
+    flex-direction: row; /* Asegura que los elementos estén en fila */
 }
 
-.tournament-item:last-child {
-    border-bottom: none; /* Quita la línea del último elemento */
+.list-item:last-child {
+    border-bottom: none;
 }
 
-.tournament-item:hover {
-    background-color: var(--surface-color); /* Sutil cambio de fondo al pasar el ratón */
+.list-item:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* Sutil hover si se desea} */
 }
 
-.tournament-info .name {
+.item-info {
+    margin-bottom: 5px; /* Espacio entre el nombre y la fecha */
+}
+
+.item-info .name {
     font-weight: bold;
-    display: block; /* Hace que el nombre ocupe su línea */
+    display: block; /* Asegura que ocupe su línea */
 }
 
-.tournament-info .date {
+.item-info .date {
     font-size: 0.9em;
     color: var(--text-secondary-color);
-    display: block; /* Hace que la fecha ocupe su línea */
+    display: block;
     margin-top: 3px;
 }
 
-.tournament-placement {
-    font-weight: bold;
-    text-align: right; /* Asegura alineación derecha */
-    color: var(--accent-color);
-    min-width: 80px; /* Evita que el texto se comprima mucho */
+.item-details {
+    font-weight: normal; /* Normal para roles, fechas */
+    text-align: right;
+    color: var(--text-secondary-color); /* Color secundario para detalles */
+    min-width: 100px; /* Ancho mínimo para alinear bien */
+    font-size: 0.9em; /* Tamaño de fuente más pequeño para los detalles */
 }
 
-/* --- Opcional: Footer --- */
-/*
+.item-details span { /* Asegurar que el span dentro tome el color */
+     color: var(--text-secondary-color);
+}
+
+/* --- Footer --- */
 .footer {
     text-align: center;
     padding: 20px;
-    margin-top: 50px;
+    margin-top: 40px;
     border-top: 1px solid var(--border-color);
     font-size: 0.9em;
-    color: var(--text-secondary-color);
+    color: var (--text-secondary-color);
 }
-*/
 
-/* --- Media Queries para Responsividad (Opcional Básico) --- */
+/* --- Media Queries (Básico) --- */
 @media (max-width: 600px) {
     .header-description h1 {
-        font-size: 2em;
+        font-size: 2em; /* Reduce el tamaño del título */
     }
     .header-description p {
-        font-size: 1em;
+        font-size: 1em; /* Reduce el tamaño del párrafo */
     }
-    .tournaments-section h2 {
+    .tournaments-section h2,
+    .kader-section h2 {
         font-size: 1.8em;
     }
-    .tournament-item {
-        padding: 12px 5px;
+    .list-item {
+        padding: 12px; /* Ajusta el espacio interno */
+        margin-bottom: 10px; /* Reduce el margen entre elementos */
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
     }
-    .tournament-info .name {
-        font-size: 0.95em;
+    .item-info {
+        margin-bottom: 8px; /* Espacio entre el nombre y la fecha */
     }
-    .tournament-placement {
-        font-size: 0.95em;
-        min-width: 70px;
+    .item-details {
+        text-align: right; /* Mantén el texto a la derecha */
+        align-self: flex-end; /* Asegura que el texto permanezca alineado a la derecha */
+        width: 100%; /* Asegura que ocupe todo el ancho disponible */
+        margin-top: 5px; /* Espacio adicional para separar detalles */
     }
+     .nav-content {
+         padding: 0 10px; /* Ajusta padding en nav */
+     }
+     .logo {
+         font-size: 1.5em;
+     }
+     .nav-link {
+         font-size: 0.9em;
+         padding: 4px 8px;
+     }
+     .logo-img {
+         height: 50px; /* Reduce el tamaño del logo en pantallas pequeñas */
+     }
 }
