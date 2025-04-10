@@ -15,7 +15,7 @@
             </a>
             <span class="nav-left">Pink Pumas</span>
 
-            <a href="https://www.instagram.com/pinkpumas_/" target="_blank" rel="noopener noreferrer" class="nav-link">
+            <a href="https://www.instagram.com/pinkpumas_/" target="_blank" rel="noopener noreferrer" class="nav-link" onclick="openInstagramApp(event)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -49,5 +49,18 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+    function openInstagramApp(event) {
+        event.preventDefault();
+        const appLink = "instagram://user?username=pinkpumas_";
+        const webLink = "https://www.instagram.com/pinkpumas_/";
+        window.location.href = appLink;
+
+        // Si no se redirige a la app, abre el enlace web después de un breve retraso
+        setTimeout(() => {
+            window.open(webLink, "_blank");
+        }, 500);
+    }
+</script>
 </body>
 </html>

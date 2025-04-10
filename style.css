@@ -56,7 +56,7 @@ body {
 }
 
 .logo-img {
-    height: 4vw; /* Ajusta el tamaño del logo según el ancho de la ventana */
+    height: 2.5vw; /* Ajusta el tamaño del logo según el ancho de la ventana */
     max-height: 80px; /* Tamaño máximo para pantallas grandes */
     width: auto; /* Mantiene las proporciones */
     display: block; /* Asegura que la imagen se comporte como bloque */
